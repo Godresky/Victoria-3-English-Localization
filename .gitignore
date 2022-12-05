@@ -42,4 +42,5 @@ binaries/**
 *.xcf
 *.csv
 *.map
+*.curves
 *.heightmap
