@@ -416,6 +416,8 @@
  TRADE_ROUTE_CONVOY_COST:0 "Sort by the cost of @convoys! [concept_convoys]"
  TRADE_ROUTE_PRODUCTIVITY:0 "Sort by [concept_productivity] of the [GetBuildingType('building_trade_center').GetName]"
  TRADE_ROUTE_REVENUE:0 "Sort by [concept_trade_revenue] for the [GetBuildingType('building_trade_center').GetName]"
+ IMPORT_TRADE_ROUTE: "Import [concept_trade_route]"
+ EXPORT_TRADE_ROUTE: "Export [concept_trade_route]"
 
 
  OUTLINER_PANEL_DESCRIPTION:0 "Pin any of the below lists or list items to the Outliner to the right of the screen by hovering any of them and clicking the star (@unpinned_star!) in the right corner.\n\nClick the star (@pinned_star!) again to unpin them."
@@ -707,12 +709,15 @@
  SUPPLY_NETWORK_MAPMARKER_IS_RAIDED:1 "@warning! [Concept('concept_raid_convoys', '$concept_convoy_raiding$')] has sunk $NUM_SUNK_CONVOYS|-v$ [concept_convoys] belonging to our [Concept('concept_shipping_lane', '$concept_shipping_lanes$')] passing through this node, reducing their efficiency by an average of $DAMAGE|v-%$"
  SUPPLY_NETWORK_TOOLTIP:1 "$SUPPLY_NETWORK_MAPMARKER_HEADER$\n$NUM_CONVOYS_NO_DAMAGE$\n$USED_CONVOYS$\n$NUM_SEA_NODES$\n$SUPPLY_NETWORK_STRENGTH$"
  SUPPLY_NETWORK_DAMAGED_TOOLTIP:1 "$SUPPLY_NETWORK_MAPMARKER_HEADER$\n$USED_CONVOYS$\n$NUM_SEA_NODES$\n$SUPPLY_NETWORK_STRENGTH$\n\n$IS_BEING_RAIDED_DESC$"
-
+ 
+ CONVOY_TOPBAR_TOOLTIP: "#header @convoys! [concept_convoys]#!\nBalance: [Country.GetNumAvailableConvoys|=+D]\n[Country.GetConvoyEffectDesc]\n$TOOLTIP_DELIMITER$\n$NUM_CONVOYS_BREAKDOWN$"
+ NUM_CONVOYS_BREAKDOWN: "Your total generation of #v [Country.GetNumConvoys|D+=]#! @convoys! [concept_convoys] are due to:\n[Country.GetNumConvoysDesc][ConcatIfNeitherEmpty( '\n', Country.GetNumConvoysDamagedDesc )]\n\n$USED_CONVOYS_TOOLTIP_SHORT$"
+ CONVOY_EFFECT_REDUCED_SUPPLY_NETWORK: "Reduces [concept_supply_network] strength to #n $SUPPLY_NETWORK_STRENGTH|0%$#!"
  NUM_CONVOYS_NO_DAMAGE:1 "Available Convoys: #tooltippable #tooltip:[Country.GetTooltipTag],NUM_CONVOYS_TOOLTIP @convoys![Country.GetNumConvoys|D]#!#!"
  NUM_CONVOYS_NO_DAMAGE_NUMBER:1 "@convoys![Country.GetRequiredConvoys|vD]/[Country.GetNumConvoys|vD]"
  NUM_CONVOYS_DAMAGE:2 "Usable Convoys: #tooltippable #tooltip:[Country.GetTooltipTag],NUM_CONVOYS_TOOLTIP @convoys![Country.GetNumUsableConvoys|D]#!#! (#R @convoys![Country.GetNumDamagedConvoys] sunk#!)"
  NUM_CONVOYS_TOOLTIP:1 "#header Number of [concept_convoys] produced#!\n$TOOLTIP_DELIMITER$\n[Country.GetNumConvoysDesc][ConcatIfNeitherEmpty( '\n', Country.GetNumConvoysDamagedDesc )]"
- NUM_CONVOYS_TOOLTIP_EXTENDED:5 "#header @convoys! [concept_convoys]#!\nBalance: [Country.GetNumAvailableConvoys|=+D]\n$TOOLTIP_DELIMITER$\nYour total generation of #v [Country.GetNumConvoys|D+=]#! @convoys! [concept_convoys] are due to:\n[Country.GetNumConvoysDesc][ConcatIfNeitherEmpty( '\n', Country.GetNumConvoysDamagedDesc )]\n\n$USED_CONVOYS_TOOLTIP_SHORT$"
+ NUM_CONVOYS_TOOLTIP_EXTENDED:6 "#header @convoys! [concept_convoys]#!\n$TOOLTIP_DELIMITER$\nBalance: [Country.GetNumAvailableConvoys|=+D]\n\n$NUM_CONVOYS_BREAKDOWN$"
  CONVOY_DAMAGE_TOOLTIP_ENTRY:0 "[Character.GetCountry.GetFlagTextIcon] [Character.GetFullName] convoy raiding in [Character.GetCommanderOrder.GetStrategicRegion.GetName]: #BOLD @convoys!$VALUE|+=$#!"
  CONVOY_DAMAGE_TOOLTIP_ENTRY_LINGERING:0 "[Country.GetFlagTextIcon] lingering convoy raiding damage: #BOLD @convoys!$VALUE|+=$#!"
  USED_CONVOYS:1 "Required Convoys: #tooltippable #tooltip:[Country.GetTooltipTag],USED_CONVOYS_TOOLTIP @convoys![Country.GetRequiredConvoys|D]#!#!"
@@ -1440,7 +1445,7 @@
  OUTLINER_ENTRY_INSTRUCTION_OPEN:0 "#instruction Click#! to expand or collapse"
  OUTLINER:0 "Outliner"
  OUTLINER_TOOLTIP:0 "#bold Outliner#!"
- MAP_LIST_DECREE_COST:0 "@aut! #v [MapListOption.GetDecreeData.GetDecree.GetCost]#!"
+ MAP_LIST_DECREE_COST:0 "@aut! #v [MapListOption.GetDecreeData.GetCost]#!"
  MAP_LIST:1 "Ledger"
  MAP_LIST_TOOLTIP:2 "#bold Ledger#!"
  establish_colony:0 "Establish Colony"
@@ -1643,7 +1648,7 @@
  BUREAUCRACY_EXPENSE_PER_INSTITUTION:0 "$COST|+=0$ from [INSTITUTION.GetName] ([INSTITUTION.GetInvestmentLevel|v])"
  BUREAUCRACY_EXPENSE_FROM_INSTITUTIONS_TOOLTIP:0 "#header @bur![concept_bureaucracy] cost of [Concept('concept_institution', '$concept_institutions$')]: $COST|+=0$#!\n$TOOLTIP_DELIMITER$\n$BREAKDOWN$"
 
- TOTAL_INSTITUTIONS_INVESTMENT_LEVELS:0 "Total Institution [Concept('concept_investment_level', '$concept_investment_levels$')]: #v $LEVELS|+=0$#!"
+ TOTAL_INSTITUTION_INVESTMENT_LEVELS:0 "Total Institution [Concept('concept_investment_level', '$concept_investment_levels$')]: #v $LEVELS|0$#!"
  BUREAUCRACY_EXPENSE_INSTITUTIONS:0 "$INCORPORATEDCOST$\n$INSTITUTION_LEVELS$\n$BREAKDOWN$"
 
  BUREAUCRACY_EXPENSE_PER_STATE:0 "$TOTAL_COST|+=0$ from [State.GetName] ($STATE_COST|+=0$ base, $POPULATION_COST|+=0$ from $POPULATION|Kv$ people)"
@@ -1868,15 +1873,16 @@
  BUILDING_PROGRESS_TOOLTIP:1 "#header [Building.GetName]#!\nBuilding Progress: #VARIABLE [Building.GetConstructionProgressPercentage|%]#!\nWeekly [concept_construction] Allocation: #v #tooltippable #tooltip:[Building.GetTooltipTag],CONSTRUCTION_SPEED_TOOLTIP [Building.GetConstructionSpeedPerWeek|2]#!#!#!\nTime remaining: #VARIABLE [Building.GetConstructionRemainingWeeksDesc]#!"
  BUILDING_PROGRESS_TOOLTIP_QUEUED:0 "#header [Building.GetName]#!\nIn Construction Queue in [Country.GetName]"
  
- INFRASTRUCTURE_FROM_POPS:1 "$VALUE|+=1$ from [Concept('concept_pop', '$concept_pops$')]: "
- INFRASTRUCTURE_FROM_POPS_CAPPED:1 "$VALUE|+=1$ (Capped at maximum value of #tooltippable #tooltip:$BREAKDOWN_TAG$ $CAP|1v$#!#!) from [Concept('concept_pop', '$concept_pops$')] "
+ INFRASTRUCTURE_FROM_STATE: "$VALUE|+=1$ from [concept_state]\n$BREAKDOWN$"
+ INFRASTRUCTURE_FROM_POPS:2 "$VALUE|+=1$ from [Concept('concept_pop', '$concept_pops$')]\n$BREAKDOWN$[ConcatIfNeitherEmpty('\n','$CAP_BREAKDOWN$')]"
+ INFRASTRUCTURE_FROM_POPS_CAPPED:2 "$VALUE|+=1$ (capped at maximum value of $CAP|1v$)"
 
  NEXT_PAGE:0 "Next page"
  PREVIOUS_PAGE:0 "Previous page"
  
  CONSTRUCTION_QUEUE_HEADER:0 "Construction Queue"
  CONSTRUCTION_QUEUE_BUILDING_IN_STATE:0 "[ConstructionQueueElement.GetBuilding.GetName] in [ConstructionQueueElement.GetBuilding.GetState.GetName]"
- CONSTRUCTION_QUEUE_ITEM_VALID:2 "#header Expanding [Building.GetName] in [State.GetName]#!\n#v $WEEKS$#! week(s) until complete\n$TOOLTIP_DELIMITER$\n#v $PROGRESS|0$#!/#v $REQUIRED|0$#! [concept_construction] progress (#v $PERCENT_COMPLETE|%$#!)\n#v [ConstructionQueueElement.GetBaseConstructionSpeed|2]#! [concept_construction] provided by [Building.GetOwner.GetName] results in a total of #v #tooltippable #tooltip:[ConstructionQueueElement.GetTooltipTag],CONSTRUCTION_QUEUE_SPEED_TOOLTIP $SPEED$#!#!#! progress each week\n"
+ CONSTRUCTION_QUEUE_ITEM_VALID:3 "#header Expanding [Building.GetName] in [State.GetName]#!\n[AddTextIf( ConstructionQueueElement.IsCurrentlyUnderConstruction, '$WEEKS|v$ week(s) until complete\n')]$TOOLTIP_DELIMITER$\n#v $PROGRESS|0$#!/#v $REQUIRED|0$#! [concept_construction] progress (#v $PERCENT_COMPLETE|%$#!)\n#v [ConstructionQueueElement.GetBaseConstructionSpeed|2]#! [concept_construction] provided by [Building.GetOwner.GetName] results in a total of #v #tooltippable #tooltip:[ConstructionQueueElement.GetTooltipTag],CONSTRUCTION_QUEUE_SPEED_TOOLTIP $SPEED$#!#!#! progress each week\n"
  CONSTRUCTION_QUEUE_ITEM_INVALID:0 "#header [Building.GetName] in [State.GetName]#!\n$TOOLTIP_DELIMITER$\n$INVALID_DESC$"
  CONSTRUCTION_SPEED_BASE_TOOLTIP:4 "#tooltip_header @construction![Nbsp][concept_construction]#![AddLocalizationIf(Country.IsConstructionPaused, '$CONSTRUCTION_IS_PAUSED$')]\nTotal: #v [Country.CalcBaseConstructionSpeed|2]#!\nBeing used: #v [Country.CalcUsedConstruction|0]/[Country.CalcBaseConstructionSpeed|0]#!\n$TOOLTIP_DELIMITER$\n[Country.GetBaseConstructionSpeedDesc]"
  CONSTRUCTION_QUEUE_TOOLTIP:0 "[Country.GetConstructionQueueDesc]"
@@ -1889,9 +1895,9 @@
  CONSTRUCTION_SPEED_USED_TOOLTIP:2 "#header [concept_under_construction]#! in [GetPlayer.GetName]\n$TOOLTIP_DELIMITER$\nThere are #v [Country.GetNumActiveConstructionQueueElements]#! project(s) using [concept_construction] this week:[ConcatIfNeitherEmpty('\n',GetPlayer.GetActiveConstructionProjectsDesc)]"
  CONSTRUCTION_SPEED_TOOLTIP:0 "[Building.GetConstructionSpeedPerWeekDesc]"
  CONSTRUCTION_QUEUE_SPEED_TOOLTIP:0 "[ConstructionQueueElement.GetConstructionSpeedPerWeekDesc]"
- CONSTRUCTION_QUEUE_DESC_ITEM:0 "#b $NUM$#!: [BUILDING.GetName] in [STATE.GetName]: #v $BASE_SPEED$#! (Max of #v $MAX_BASE_SPEED$#!) - #v $WEEKS_LEFT$#! week(s) until complete"
- CONSTRUCTION_QUEUE_DESC_BACKLOG_ITEM:0 "#b $NUM$#!: [BUILDING.GetName] in [STATE.GetName] (Queued) - #v $WEEKS_LEFT$#! week(s) until complete"
- CONSTRUCTION_QUEUE_DESC_INVALID_ITEM:0 "#b $NUM$#!: [BUILDING.GetName] in [STATE.GetName] #N (Invalid)#!"
+ CONSTRUCTION_QUEUE_DESC_ITEM:2 "[BUILDING.GetName] in [STATE.GetName]: #v $BASE_SPEED$#! (Max of #v $MAX_BASE_SPEED$#!)[AddTextIf( $IS_UNDER_CONSTRUCTION$ ,' - #v $WEEKS_LEFT$#! week(s) until complete' )]"
+ CONSTRUCTION_QUEUE_DESC_BACKLOG_ITEM:2 "[BUILDING.GetName] in [STATE.GetName] (Queued)[AddTextIf( $IS_UNDER_CONSTRUCTION$ , ' - #v $WEEKS_LEFT$#! week(s) until complete' )]"
+ CONSTRUCTION_QUEUE_DESC_INVALID_ITEM:1 "[BUILDING.GetName] in [STATE.GetName] #N (Invalid)#!"
  CONSTRUCTION_QUEUE:3 "[concept_construction_queue]"
  CONSTRUCTION_QUEUE_STATE:0 "[concept_construction] #v @construction! #tooltippable #tooltip:[State.GetOwner.GetTooltipTag],CONSTRUCTION_SPEED_BASE_TOOLTIP [State.GetOwner.CalcUsedConstruction|0]/[State.GetOwner.CalcBaseConstructionSpeed|0]#!#!#!"
  CONSTRUCTION_QUEUE_IS_EMPTY:1 "Nothing is [concept_under_construction]"
@@ -1954,7 +1960,9 @@
  NOT_HIRING:0 "#header #red [Building.GetName] is unable to hire!#!#!\n$TOOLTIP_DELIMITER$\nEmployment: #tooltippable #tooltip:[Building.GetTooltipTag],TOOLTIP_BUILDING_EMPLOYMENT #variable [Building.GetNoOfEmployed|1*]#!#!#! / #maximum [Building.GetEmployeeCap|1*] Employees#! (#BOLD #V [Building.GetEmploymentPercentage|0%]#!#!)\n\nThis [concept_building] does not have the funds to hire anyone.\n\nCurrent Productivity: [Building.GetAverageAnnualEarningsPerEmployeeFormatted]"
  EMPLOYMENT_HINT:1 "\n\n@information! The [Concept('concept_building_wage', '$concept_building_wages$')] in the [Building.GetName] are based on its economic situation. In order to afford to attract more [Concept('concept_pop', '$concept_pops$')] to the Workforce its Weekly [concept_building_balance] should be improved. You can influence this by either making the [Concept('concept_good', '$concept_goods$')] it consumes cheaper, or by making the Goods it produces more expensive. This is done by increasing or decreasing supply and demand on the [Building.GetState.GetMarket.GetName]. You can guarantee that the Workforce is paid a competitive [concept_building_wage] by [Concept('concept_subsidies', '$concept_subsidizing$')] the building. This will keep it afloat by using [concept_money] from the [GetPlayer.GetAdjectiveNoFormatting] [concept_treasury], if necessary."
  INCOME_TAXES:1 "Taxes paid: #tooltippable #tooltip:[Building.GetTooltipTag],TOOLTIP_BUILDING_TAXES_TOOLTIP #variable @money![Building.GetTaxationRevenue|D+=]#!#!#!"
- BUILDING_TOOLTIP_BASE_INFO:1 "Size: [Building.GetExpansionLevelBreakdownDesc][ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'EMPLOYMENT_INFO', '' ))]"
+ BUILDING_TOOLTIP_BASE_INFO:2 "[AddLocalizationIf(Not(Building.GetState.IsIncorporated), 'BUILDING_STATE_IS_UNINCORPORATED')]Size: [Building.GetExpansionLevelBreakdownDesc][ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'EMPLOYMENT_INFO', '' ))]"
+ BUILDING_STATE_IS_UNINCORPORATED: "@unincorporated! [SelectLocalization(Building.GetState.IsIncorporating, 'BUILDING_STATE_INCORPORATING', 'UNINCORPORATED')]\n"
+ BUILDING_STATE_INCORPORATING: "[Concept('concept_incorporated_state','$concept_incorporating$')] (#tooltippable #tooltip:[Building.GetState.GetTooltipTag],TOOLTIP_INCORPORATING_STATE [Building.GetState.GetIncorporationProgress|v%0]#!#!)"
  EMPLOYMENT_INFO:1 "Employment: #tooltippable #tooltip:[Building.GetTooltipTag],TOOLTIP_BUILDING_EMPLOYMENT #variable [Building.GetNoOfEmployed|1*]#!#!#! / #maximum [Building.GetEmployeeCap|1*] Employees#! (#BOLD #V [Building.GetEmploymentPercentage|0%]#!#!)"
  BUILDING_TOOLTIP:2 "$BUILDING_TOOLTIP_BASE_INFO$[ConcatIfNeitherEmpty('\n', SelectLocalization( And(GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), Not(Building.IsSubsistenceBuilding)), 'PRODUCTIVITY_INFO', '' ))][ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'CASH_RESERVES_INFO', '' ))][ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'INCOME_TAXES', '' ))][ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'BUILDING_AVERAGE_WAGE_FLIPPED', '' ))]"
  BUILDING_GOVERNMENT_TOOLTIP:2 "$BUILDING_TOOLTIP_BASE_INFO$[ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'INCOME_TAXES', '' ))]\n$GOVERNMENTAL_EXPENSES$[ConcatIfNeitherEmpty('\n', SelectLocalization( GreaterThan_int32(Building.GetNoOfEmployed, '(int32)0'), 'BUILDING_AVERAGE_WAGE_FLIPPED', '' ))]"
@@ -2217,7 +2225,7 @@
  TOOLTIP_INCORPORATING_STATE:0 "#header State is being [Concept('concept_incorporated_state','$concept_incorporated$')]#!\n$TOOLTIP_DELIMITER$\nTime remaining: [State.GetIncorporationTimeLeft]\n\n[State.GetIncorporationTimeDesc]\n\n[State.GetIncorporationPartialEffectsDesc]\n$TOOLTIP_DELIMITER$\n[concept_unincorporated_state_desc]"
  INCORPORATION_PARTIAL_EFFECTS:0 "Due to being [State.GetIncorporationProgress|v%0] [Concept('concept_incorporated_state','$concept_incorporated$')], [State.GetName] is subject to the following effects:\n[Modifier.GetDesc]"
  PARTIAL_INCORPORATION_TAXATION_MODIFIER:0 "Not fully [Concept('concept_incorporated_state','$concept_incorporated$')]"
- INCORPORATING:0 "[Concept('concept_incorporated_state','$concept_incorporating$')] ([State.GetIncorporationProgress|v%0])"
+ INCORPORATING:1 "[Concept('concept_incorporated_state','$concept_incorporating$')] (#tooltippable #tooltip:[State.GetTooltipTag],TOOLTIP_INCORPORATING_STATE [State.GetIncorporationProgress|v%0]#!#!)"
  INCORPORATE:0 "[Concept('concept_incorporated_state','$concept_incorporate$')] @bur![State.PredictBureaucracyCost|1v]"
 
  INCORPORATION_TIME_SAME_CULTURE:0 "It takes $YEARS|v0$ years in total to [Concept('concept_incorporated_state','$concept_incorporate$')] [State.GetName] since it is a [concept_homeland] of [State.GetOwner.GetName] due to its [Culture.GetName] [concept_culture]."
@@ -2585,6 +2593,8 @@
  MAP_INTERACTION_ACTIVATE_CONSCRIPTION_CENTER_PERFORMED:0 "Conscription Center activated"
  MAP_INTERACTION_DESIGNATE_STRATEGIC_OBJECTIVE_DESC:0 "Select [concept_state] to designate as [concept_strategic_objective]"
  MAP_INTERACTION_DESIGNATE_STRATEGIC_OBJECTIVE_PERFORMED:0 "[concept_strategic_objective] designated"
+ STATE_STRATEGIC_OBJECTIVE: "[concept_strategic_objective]\n[State.GetTheater(State.GetOwner).GetName]"
+ STATE_STRATEGIC_OBJECTIVE_TOOLTIP: "[State.GetName] is your Strategic Objective in the [State.GetTheater(State.GetOwner).GetName|v]"
 
  MAP_INTERACTION_RECRUIT_GENERALS_DESC:1 "Select #V [concept_hq]#! to recruit [Concept( 'concept_general', '$concept_generals$' )]"
  MAP_INTERACTION_RECRUIT_GENERALS_FAIL_LAND:1 "[Concept( 'concept_general', '$concept_generals$' )] can only be recruited for land HQs"
@@ -2674,8 +2684,8 @@
  PRODUCTION_METHOD_DISABLED_BY_GAME_RULE:0 "$concept_production_method$ disabled by a game rule"
  CHANGE_TO:0 "#title Change to#!"
  CURRENT_SUFFIX:0 "#title (Current)#!"
- INVESTMENT_TITLE:0 "Number of Investment Levels"
- COST_PER_INVESTMENT_TITLE:0 "[concept_bureaucracy] Cost / Investment Level"
+ INVESTMENT_TITLE:1 "Number of [Concept('concept_investment_level', '$concept_investment_levels$')]"
+ COST_PER_INVESTMENT_TITLE:1 "[concept_bureaucracy] Cost / [concept_investment_level]"
  WEEKLY_COSTS_TITLE:0 "Total Weekly Cost"
  INSTITUTION_LEVEL_CHANGE:0 "Changing to Level [Institution.GetTargetInvestmentLevel]"
  INSTITUTION_CURRENT_LEVEL:0 "Level [Institution.GetInvestmentLevel]"
@@ -2688,7 +2698,7 @@
  MINCOST:0 "Minimum Cost: $VAL|v1$"
  INCORPORATED_POPULATION_LAW_COST:1 "Incorporated Population of $POPULATION|vK$ costs #v $COST|1+$#! per Investment\n$TAB$Base Cost: #v $BASECOST|1+$#! $MODIFIER$"
  INSTITUTION_INVESTMENT_FACTOR:1 "#title $COST_PER_INVESTMENT_TITLE$: #v $VAL|1+$#!#!\n$TOOLTIP_DELIMITER$\n$BREAKDOWN$"
- INSTITUTION_INVESTMENT_TOTAL:1 "#header Total policy investment#!\nCurrent: #variable @ins! $VAL$#!\n$TOOLTIP_DELIMITER$\n$BREAKDOWN$"
+ INSTITUTION_INVESTMENT_TOTAL:2 "#header Total [Concept('concept_investment_level', '$concept_investment_levels$')]#!\nCurrent: #variable @ins! $VAL|0$#!\n$TOOLTIP_DELIMITER$\n$BREAKDOWN$"
  INSTITUTION_INVESTMENT_LIST_ITEM:0 "#title [Institution.GetName]:#! #variable [Institution.GetInvestmentLevel]#!"
 
  CLOCK_TEXT:0 "#BOLD [TimeKeeper.GetCurrentDate.GetString]#!"
@@ -4164,8 +4174,8 @@
  CHANGE_RANK_CANNOT_PROMOTE:2 "[Character.GetFullName] is at the highest level of command as [Character.GetRankName] and cannot be promoted further."
  CHANGE_RANK_CANNOT_PROMOTE_RULER:1 "[Character.GetFullName] is the [Character.GetPrimaryRoleTitle] of [Character.GetCountry.GetName] and cannot be promoted beyond [Character.GetRankName]"
 
- DESIGNATE_STRATEGIC_OBJECTIVE_REACHED_MAX:0 "$COUNTRY$ has reached the maximum number of [Concept('concept_strategic_objective', '$concept_strategic_objectives$')]"
- DESIGNATE_STRATEGIC_OBJECTIVE_IMPOSSIBLE_STATE:0 "$STATE$ is not an enemy of $COUNTRY$ nor is owned by $COUNTRY$"
+ DESIGNATE_STRATEGIC_OBJECTIVE_REACHED_MAX:1 "[Country.GetNameNoFormatting] has reached the maximum number of [Concept('concept_strategic_objective', '$concept_strategic_objectives$')] in this [concept_theater]"
+ DESIGNATE_STRATEGIC_OBJECTIVE_IMPOSSIBLE_STATE:1 "[State.GetNameNoFormatting] is not in a [Country.GetAdjectiveNoFormatting] enemy [concept_front] nor is owned by [Country.GetNameNoFormatting]"
 
  SUPPRESS_IG_IN_GOVERNMENT:0 "[concept_interest_group] is [concept_in_government]"
  SUPPRESS_IG_IS_PROMOTED:2 "[concept_interest_group] is [Concept('concept_bolster','$concept_bolstered$')]"
@@ -4774,6 +4784,7 @@
  ADD_TO_TECH_QUEUE:0 "Add [Technology.GetName] to the research queue"
  REMOVE_TECH_FROM_QUEUE:0 "Remove [Technology.GetName] from the research queue"
  HOW_TO_ADD_TO_RESEARCH_QUEUE:0 "Add [Concept('concept_technology', '$concept_technologies$')] to the research queue by SHIFT + clicking an available tech or click the #b +#! next to it."
+ TECH_QUEUE_BUTTON_NUMBER: "#b [Add_int32('(int32)1', Add_int32(GetDataModelSize(AccessPlayer.GetResearchQueueTop), GetDataModelSize(AccessPlayer.GetResearchQueueBottom)))]#!"
 
  TECHNOLOGY_SPREAD_TOOLTIP:0 "#header [concept_technology_spread]#!\n$TOOLTIP_DELIMITER$\n[GetPlayer.GetWeeklyTechnologySpreadForTechDesc(Technology.Self)]"
  TECHNOLOGY_GAIN_BREAKDOWN:1 "#header Technology Progress#!\nFrom [concept_innovation]: #tooltippable #tooltip:[Technology.GetTooltipTag]|[GetPlayer.GetTooltipTag],INNOVATION_TOOLTIP #v [GetPlayer.GetWeeklyInnovationForTech(Technology.Self)|=+0]#!#!#!\nFrom [concept_technology_spread]: #tooltippable #tooltip:[Technology.GetTooltipTag],TECHNOLOGY_SPREAD_TOOLTIP [GetPlayer.GetWeeklyTechnologySpreadForTechDesc(Technology.Self)]#!#!"
@@ -5560,8 +5571,8 @@
  POP_QUALIFICATIONS_ENTRY:0 "[PopType.GetName]: $QUALIFICATIONS|v0$ (#tooltippable #tooltip:$TAG$|[PopType.GetTooltipTag],POP_POPTYPE_QUALIFICATIONS_CHANGE $CHANGEVAL|+=0$#!#! / month)"
 
  QUALIFICATIONS_CHANGE_POPTYPE_TOOLTIP:0 "#header Monthly Change in Qualifications#!\nEach month $MONTHLY_CHANGE|=vD$ of the Workforce Qualify to become [PopType.GetName] due to\n$BASE_VALUE|v2$ due to Pop Attributes:\n$BREAKDOWN$\n$QUALIFICATIONS_WORKFORCE_FACTOR$[ConcatIfNeitherEmpty('\n','$MODIFIER$')][ConcatIfNeitherEmpty('\n\n',PopType.GetQualificationsGrowthDesc)]"
- TOTAL_TIME_CONSTRUCTION:2 "[Country.GetWeeksLeftUntilConstructionQueueFinished|v] weeks"
- TOTAL_TIME_CONSTRUCTION_TOOLTIP:0 "The total number of weeks left for all the [Concept('concept_building', '$concept_buildings$')] in the [concept_construction_queue] and [concept_under_construction] to finish building"
+ QUEUE_CONSTRUCTION_POINTS_SUMMARY: "[Country.GetConstructionQueueSpeed|2D] / [Country.GetConstructionPointsLeftInQueue|2D]"
+ QUEUE_CONSTRUCTION_POINTS_SUMMARY_TOOLTIP: "#todo PRCAL-25693 show something here#!"
 
  NUM_PRIVATE_CONSTRUCTION_TOOLTIP:0 "#header [Concept('concept_private_construction', '$concept_private_constructions$')]#!\nThere are [Country.GetNumPrivateConstructionsInQueue|v] [Concept('concept_private_construction', '$concept_private_constructions$')] in the [Country.GetAdjective] [concept_construction_queue]"
  NUM_GOVERNMENT_CONSTRUCTION_TOOLTIP:0 "#header [Concept('concept_government_construction', '$concept_government_constructions$')]#!\nThere are [Country.GetNumGovernmentConstructionsInQueue|v] [Concept('concept_government_construction', '$concept_government_constructions$')] in the [Country.GetAdjective] [concept_construction_queue]"
@@ -5653,9 +5664,15 @@
 
  MAP_INTERACTION_RESET_PRODUCTION_METHODS_STATE_DESC:0 "Reset Production Methods to national standards"
  MAP_INTERACTION_RESET_PRODUCTION_METHODS_STATE_SELECT:0 "#header Reset Production Methods#!\nThe following adjustments will be made across [State.GetName]:\n\n$LIST$"
+ RESET_PRODUCTION_METHODS_BUILDING: "#header Reset Production Methods#!\nReset [Concept('concept_production_method','$concept_production_methods$')] for $NAME$ in [State.GetName] to match your most common national standards. The following adjustments will be made:\n\n$LIST$"
+ RESET_PRODUCTION_METHODS_BUILDING_TYPE: "#header Reset Production Methods#!\nReset [Concept('concept_production_method','$concept_production_methods$')] across all $NAME$ in [Country.GetName] to match your most common national standards. The following adjustments will be made:\n\n$LIST$"
+ RESET_PM_BUILDING: "Reset Production Methods in [Building.GetState.GetName]"
+ RESET_PM_BUILDING_TYPE: "Reset Production Methods across [Country.GetName]"
+
  MAP_INTERACTION_RESET_PRODUCTION_METHODS_STATE_PERFORMED:0 "$concept_production_methods$ aligned"
  RESET_PRODUCTION_METHODS_ALL_BUILDINGS_STANDARD:0 "All [Concept('concept_production_method','$concept_production_methods$')] already aligned with the national standard"
  RESET_PRODUCTION_METHOD_TOOLTIP_LIST_ENTRY:0 "[Building.GetName]: $ACTIVE_METHOD$ @arrow_right! $STANDARD_METHOD$"
+ RESET_PRODUCTION_METHOD_TOOLTIP_LIST_ENTRY_WITH_STATE_NAME: "[Building.GetName] in [Building.GetState.GetName]: $ACTIVE_METHOD$ @arrow_right! $STANDARD_METHOD$"
  
  notification_peace_agreement_signed_war_leader_tooltip:0 "#header $notification_peace_agreement_signed_war_leader_name$#!\n$TOOLTIP_DELIMITER$\n$notification_peace_agreement_signed_war_leader_desc$"
  notification_peace_agreement_signed_war_leader_name:0 "Peace with [SCOPE.sC('recipient').GetName]"
@@ -6002,6 +6019,8 @@
  BUILDING_MAP_LIST_PANEL_STATUS_BUILD:0 "Build"
  BUILDING_MAP_LIST_PANEL_STATUS_EXPAND:0 "Expand"
  BUILDING_MAP_LIST_PANEL_EFFICIENCY_TOOLTIP:0 "#header [concept_construction] Efficiency in [State.GetName]: $VAL|v%1$#!\n$TOOLTIP_DELIMITER$\n$BREAKDOWN$"
+ 
+ CONSTRUCTION_EFFICIENCY_MINIMUM_DESC: "@information! [concept_construction] Efficiency cannot be lower than [GetDefine('NEconomy', 'MIN_CONSTRUCTION_EFFICIENCY')|v%0]"
 
  BUILDING_MAP_LIST_PANEL_PROFIT_IMPACT_HEADER:2 "Earnings"
  BUILDING_MAP_LIST_PANEL_PROFIT_IMPACT_TOOLTIP:2 "#header Predicted earnings after expansion#!\n$TOOLTIP_DELIMITER$\nA prediction of how much expanding this building would affect its weekly earnings."
@@ -6082,7 +6101,7 @@
  TRADE_ROUTES_SORT_GOODS:0 "Goods"
  TRADE_ROUTES_SORT_AMOUNT:0 "Units"
  TRADE_ROUTES_SORT_DIRECTION:0 "Dir."
- TRADE_ROUTES_SORT_COUNTRY:0 "Count"
+ TRADE_ROUTES_SORT_COUNTRY:0 "Country"
  TRADE_ROUTES_SORT_COST:0 "Cost"
  TRADE_ROUTES_SORT_PRODUCTIVITY:0 "Prod."
  TRADE_ROUTES_SORT_REVENUE:0 "Revenue"
@@ -6099,7 +6118,9 @@
  ACTIVATE_CONSCRIPTION_CENTER_MAP_LIST_PANEL_UNITS_TEXT:0 "@battalions! [MapListOption.GetActivateConscriptionCenterData.GetBuilding.GetCombatUnitCapacity|v]"
 
  FRONT_MAP_LIST_PANEL_UNITS:0 "Units"
- FRONT_MAP_LIST_PANEL_UNITS_TOOLTIP:0 "#header Units#!\n$TOOLTIP_DELIMITER$\nThe number of units present on the [concept_front]."
+ FRONT_MAP_LIST_PANEL_UNITS_TOOLTIP:1 "The number of units present on the [concept_front]."
+ FRONT_MAP_LIST_PANEL_ADVANTAGE: "Advantage"
+ FRONT_MAP_LIST_PANEL_ADVANTAGE_TOOLTIP: "Advantage/Disadvantage of the [concept_front]"
 
  RECRUIT_COMMANDERS_MAP_LIST_PANEL_STATUS_HEADER_TOOLTIP:0 "#header Status#!\n$TOOLTIP_DELIMITER$\n#concept The availability of recruiting a [concept_general] in each [concept_hq].\n\n@map_list_plus!: You can select this.\n@map_list_plus_and_checkmark!: You can select this and you are already doing this here.\n@map_list_checkmark!: You are already doing this here and you can deselect this.\n@map_list_lock!: You are already doing this here, but you can NOT deselect this.\n@map_list_cross!: You can NOT select this.\n@map_list_cross_and_checkmark!: You are already doing this here, but you can NOT select this.#!"
  RECRUIT_COMMANDERS_MAP_LIST_PANEL_CURRENT_NUM:1 "Current"
@@ -6432,7 +6453,7 @@
 
  DESIGNATE_STRATEGIC_OBJECTIVE_RIGHT_CLICK_ADD:0 "Designate as a [concept_strategic_objective]"
  DESIGNATE_STRATEGIC_OBJECTIVE_RIGHT_CLICK_REMOVE:0 "Remove from [Concept('concept_strategic_objective', '$concept_strategic_objectives$')]"
- DESIGNATE_STRATEGIC_OBJECTIVE_RIGHT_CLICK_ADD_TOOLTIP:0 "Designate [State.GetName] as a [concept_strategic_objective]"
+ DESIGNATE_STRATEGIC_OBJECTIVE_RIGHT_CLICK_ADD_TOOLTIP:1 "Designate [State.GetName] as the [concept_strategic_objective] in the [State.GetTheater(State.GetOwner).GetName|v]"
  DESIGNATE_STRATEGIC_OBJECTIVE_RIGHT_CLICK_REMOVE_TOOLTIP:0 "Remove [State.GetName] from [Concept('concept_strategic_objective', '$concept_strategic_objectives$')]"
  DESIGNATE_STRATEGIC_OBJECTIVE_TOOLTIP_ADD:0 "Designate $STATE$ as a [concept_strategic_objective]"
  DESIGNATE_STRATEGIC_OBJECTIVE_TOOLTIP_REMOVE:0 "Remove $STATE$ from [Concept('concept_strategic_objective', '$concept_strategic_objectives$')]"
@@ -6962,6 +6983,11 @@
  FEED:0 "Feed"
  TOAST:0 "Toast"
  POPUP:0 "Popup"
+
+ MESSAGE_SETTINGS_FEED: "[concept_message_settings_feed]"
+ MESSAGE_SETTINGS_TOAST: "[concept_message_settings_toast]"
+ MESSAGE_SETTINGS_POPUP: "[concept_message_settings_popup]"
+ MESSAGE_SETTINGS_NONE: "[concept_message_settings_none]"
 
  RANKING_FORMAT:0 "(#tooltippable #tooltip:$LEADERBOARD$ #v ##$RANKING$#!#!#! worldwide)"
  GDP_LEADERBOARD_HEADER:0 "#header GDP#!"
