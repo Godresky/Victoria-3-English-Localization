@@ -19,6 +19,16 @@ binaries/**
 *l_simp_chinese.yml
 *l_spanish.yml
 *l_turkish.yml
+*l_braz_por_mp1.yml
+*l_french_mp1.yml
+*l_german_mp1.yml
+*l_japanese_mp1.yml
+*l_korean_mp1.yml
+*l_polish_mp1.yml
+*l_russian_mp1.yml
+*l_simp_chinese_mp1.yml
+*l_spanish_mp1.yml
+*l_turkish_mp1.yml
 *.dds
 *.mesh
 *.zip

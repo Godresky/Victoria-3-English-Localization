@@ -158,8 +158,8 @@
  SETTING_AUDIO_OPTION_TV_TOOLTIP:0 "#T $SETTING_AUDIO_OPTION_TV$\n#!Mix for $SETTING_AUDIO_OPTION_TV$ and monitor speakers."
  SETTING_AUDIO_OPTION_NIGHTMODE:0 "Night Mode"
  SETTING_AUDIO_OPTION_NIGHTMODE_TOOLTIP:0 "#T $SETTING_AUDIO_OPTION_NIGHTMODE$\n#!Softens the sound for night play, dimming higher pitches and compressing the dynamic range."
- SETTING_MUSIC_DENSITY: "Music Density"
- SETTING_MUSIC_DENSITY_TOOLTIP: "Controls the balance between full songs, silence and mood music segments.\n\nIntense = Mostly songs playing one after the other, similar to a ‘radio station’.\nBalanced = The perfect balance between songs, silence, and mood setting\nRelaxed = Mostly relaxing music segments that provide a better mood experience and less sense of repetition after several hours of playing”"
+ SETTING_MUSIC_DENSITY:0 "Music Density"
+ SETTING_MUSIC_DENSITY_TOOLTIP:0 "Controls the balance between full songs, silence and mood music segments.\n\nIntense = Mostly songs playing one after the other, similar to a ‘radio station’.\nBalanced = The perfect balance between songs, silence, and mood setting\nRelaxed = Mostly relaxing music segments that provide a better mood experience and less sense of repetition after several hours of playing”"
   # Game
  SETTING_AUTOSAVE:0 "Autosave Interval"
  SETTING_AUTOSAVE_TOOLTIP:3 "#T $SETTING_AUTOSAVE$\n#!Sets how often the game will save automatically."
