@@ -55,3 +55,7 @@ binaries/**
 *.map
 *.curves
 *.heightmap
+*.bk2
+*.dlc
+*.editordata
+*.particle2
