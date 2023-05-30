@@ -203,7 +203,7 @@
   revolution_pulse1_events.17.b: "Let the procession go ahead."
   revolution_pulse1_events.17.c: "Proclaim a curfew and make sure it's enforced."
   revolution_pulse1_events.18.t: "When You Have A Hammer"
-  revolution_pulse1_events.18.d: "[SCOPE.sCharacter('will_kill_for_peace_general').GetPrimaryRoleTitle] [SCOPE.sCharacter('will_kill_for_peace_general').GetFullName], noting severe unrest in [SCOPE.sState('will_kill_for_peace_state').GetName], has proposed using the army to suppress agitation in the area. While [SCOPE.sCharacter('will_kill_for_peace_general').GetHerHis] political allies supper [SCOPE.sCharacter('will_kill_for_peace_general').GetHerHim], there is a heavy risk to following [SCOPE.sCharacter('will_kill_for_peace_general').GetHerHis] plan."
+  revolution_pulse1_events.18.d: "[SCOPE.sCharacter('will_kill_for_peace_general').GetPrimaryRoleTitle] [SCOPE.sCharacter('will_kill_for_peace_general').GetFullName], noting severe unrest in [SCOPE.sState('will_kill_for_peace_state').GetName], has proposed using the army to suppress agitation in the area. While [SCOPE.sCharacter('will_kill_for_peace_general').GetHerHis] political allies support [SCOPE.sCharacter('will_kill_for_peace_general').GetHerHim], there is a heavy risk to following [SCOPE.sCharacter('will_kill_for_peace_general').GetHerHis] plan."
   revolution_pulse1_events.18.f: ""It's simple—we have an army, and there is the enemy. Let me deploy my men and do what is needed, and the enemy shall be vanquished. That's all there is to it!""
   revolution_pulse1_events.18.a: "Reprimand the [SCOPE.sCharacter('will_kill_for_peace_general').GetPrimaryRoleTitle] and reject the plan."
   revolution_pulse1_events.18.b: "We must use the tools we have to solve the problems we have."
