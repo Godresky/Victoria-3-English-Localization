@@ -57,5 +57,7 @@ binaries/**
 *.heightmap
 *.bk2
 *.dlc
+*.anim
+*.skin
 *.editordata
 *.particle2
