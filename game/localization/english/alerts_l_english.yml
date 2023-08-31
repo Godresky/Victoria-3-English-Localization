@@ -14,6 +14,11 @@
  alert_has_no_research_alert_hint:1 "You set which Technology to research in one of the three Technology trees in the Technology Panel."
  alert_has_no_research_alert_action:0 "Technology Panel"
 
+ alert_can_establish_company_name: "Can Establish a new [concept_company]"
+ alert_can_establish_company_desc: "We have only established [GetPlayer.GetNumCompanies|v]/#tooltippable #tooltip:[GetPlayer.GetTooltipTag],TOOLTIP_MAX_COMPANIES [GetPlayer.GetMaxNumCompanies|v]#!#! $COMPANIES$ we are able to support."
+ alert_can_establish_company_hint: "You can establish a new [concept_company] in the Companies Panel"
+ alert_can_establish_company_action: "Companies Panel"
+
  alert_free_government_reform_name:0 "Free [concept_government_reform]"
  alert_free_government_reform_desc:0 "[LabelingHelper.GetDaysLocWithTooltip( SCOPE.GetRootScope.GetCountry.GetRemainingDaysForFreeGovernmentReformRaw, 'FREE_REFORM_DATE_TOOLTIP')] remaining.\n\nDue to the recent [concept_election] your next [concept_government_reform] will not result in any new [Concept('concept_radical','$concept_radicals$')], as long as it is done within the above time limit."
  alert_free_government_reform_hint:0 "You can Reform your Government on the Politics Panel"
@@ -154,6 +159,13 @@
  alert_market_goods_shortage_affected_buildings_breakdown_data_version:0 "[Goods.GetBreakdownOfBuildingsAffectedByShortageInMarket]"
  alert_market_goods_shortage_affected_building_entry:0 "[Building.GetName] in [Building.GetState.GetName]"
 
+ alert_state_goods_shortage_name: "[SCOPE.GetRootScope.GetStateGoods.GetGoods.GetTextIcon] [SCOPE.GetRootScope.GetStateGoods.GetGoods.GetName] [Concept('concept_input_goods_shortage', 'Shortage')] in [SCOPE.GetRootScope.GetStateGoods.GetState.GetName] ([SCOPE.GetRootScope.GetStateGoods.GetGoods.GetCompareIconAgainstBasePriceNoFormatting( SCOPE.GetRootScope.GetStateGoods.GetGoods.GetStatePrice )])"
+ alert_state_goods_shortage_desc: "There are #tooltippable #tooltip:[SCOPE.GetRootScope.GetStateGoods.GetTooltipTag],STATE_GOODS_BUILDING_SHORTAGE_BREAKDOWN [SCOPE.GetRootScope.GetStateGoods.GetNumBuildingsAffectedByShortage|v]#!#! buildings affected by this shortage."
+ alert_state_goods_shortage_hint: "You can resolve the shortages by increasing the amount of [concept_good_production] of [SCOPE.GetRootScope.GetStateGoods.GetGoods.GetTextIcon] [SCOPE.GetRootScope.GetStateGoods.GetGoods.GetName] in [SCOPE.GetRootScope.GetStateGoods.GetState.GetName] or the number of [concept_sell_orders] for [SCOPE.GetRootScope.GetStateGoods.GetGoods.GetTextIcon] [SCOPE.GetRootScope.GetStateGoods.GetGoods.GetName] in [SCOPE.GetRootScope.GetStateGoods.GetState.GetMarket.GetName]. It may also be resolved by increasing the [concept_market_access] of [SCOPE.GetRootScope.GetStateGoods.GetState.GetName] if it is below #v 100%#!."
+ alert_state_goods_shortage_action: "State Panel for [SCOPE.GetRootScope.GetStateGoods.GetGoods.GetName] in [SCOPE.GetRootScope.GetStateGoods.GetState.GetName]"
+ STATE_GOODS_BUILDING_SHORTAGE_BREAKDOWN: "[StateGoods.GetBreakdownOfBuildingsAffectedByShortage]"
+ STATE_GOODS_BUILDING_SHORTAGE_ENTRY: "[Building.GetName] in [Building.GetState.GetName]"
+
  alert_market_goods_shortage_alert_name:0 "[SCOPE.GetRootScope.GetMarketGoods.GetGoods.GetTextIcon] [SCOPE.GetRootScope.GetMarketGoods.GetGoods.GetName] [concept_input_goods_shortage] in the [SCOPE.GetRootScope.GetMarketGoods.GetMarket.GetName]"
  alert_market_goods_shortage_alert_desc:0 "There are #tooltippable #tooltip:[SCOPE.GetRootScope.GetMarketGoods.GetTooltipTag],alert_market_goods_shortage_affected_buildings_breakdown [SCOPE.GetRootScope.GetMarketGoods.GetNumBuildingsAffectedByShortage|v]#!#! buildings affected by this shortage."
  alert_market_goods_shortage_alert_hint:0 "You can resolve the shortages by increasing the number of [concept_sell_orders] for [SCOPE.GetRootScope.GetMarketGoods.GetGoods.GetTextIcon] [SCOPE.GetRootScope.GetMarketGoods.GetGoods.GetName] in [SCOPE.GetRootScope.GetMarketGoods.GetMarket.GetName]. This can be done by either producing more [SCOPE.GetRootScope.GetMarketGoods.GetGoods.GetTextIcon] [SCOPE.GetRootScope.GetMarketGoods.GetGoods.GetName], improving [concept_infrastructure] in [Concept('concept_state', '$concept_states$')] with low [concept_market_access] producing it, or setting up a [concept_trade_route] to get it from another [concept_market]."
@@ -240,6 +252,10 @@
  ag_market_goods_shortages_name:0 "[Concept('concept_input_goods_shortage', '$concept_input_goods_shortages$')]"
  ag_market_goods_shortages_desc:0 "There are [Concept('concept_input_goods_shortage', '$concept_input_goods_shortages$')] in our [concept_market]."
  ag_market_goods_shortages_tooltip:0 "#header $ag_market_goods_shortages_name$#!\n$TOOLTIP_DELIMITER$\n$ag_market_goods_shortages_desc$\n\n$ALERT_GROUP_TOOLTIP_FOOTER$"
+ 
+ ag_state_goods_shortages_name: "Local [Concept('concept_input_goods_shortage', '$concept_input_goods_shortages$')]"
+ ag_state_goods_shortages_desc: "There are [Concept('concept_input_goods_shortage', '$concept_input_goods_shortages$')] in some of our [Concept('concept_state', '$concept_states$')]."
+ ag_state_goods_shortages_tooltip: "#header $ag_state_goods_shortages_name$#!\n$TOOLTIP_DELIMITER$\n$ag_state_goods_shortages_desc$\n\n$ALERT_GROUP_TOOLTIP_FOOTER$"
 
  ag_low_market_access_states_name:0 "Low [concept_market_access]"
  ag_low_market_access_states_desc:0 "We have #v [GetPlayer.GetNumLowMarketAccessStates]#! [Concept('concept_state', '$concept_states$')] with low [concept_market_access]"
@@ -256,6 +272,15 @@
  ag_expensive_military_goods_name:0 "Expensive [Concept('concept_military_good', '$concept_military_goods$')]"
  ag_expensive_military_goods_desc:0 "We have expensive [Concept('concept_military_good', '$concept_military_goods$')] in at least one of our [Concept('concept_market', '$concept_markets$')]."
  ag_expensive_military_goods_tooltip:0 "#header $ag_expensive_military_goods_name$#!\n$TOOLTIP_DELIMITER$\n$ag_expensive_military_goods_desc$\n\n$ALERT_GROUP_TOOLTIP_FOOTER$"
+
+ ag_companies_losing_prosperity_name: "$COMPANIES$ losing [concept_prosperity]"
+ ag_companies_losing_prosperity_desc: "We have $COMPANIES$ that are in danger of losing their [concept_prosperity] bonuses."
+ ag_companies_losing_prosperity_tooltip: "#header $ag_companies_losing_prosperity_name$#!\n$TOOLTIP_DELIMITER$\n$ag_companies_losing_prosperity_desc$\n\n$ALERT_GROUP_TOOLTIP_FOOTER$"
+
+ alert_company_losing_prosperity_name: "#v [SCOPE.GetRootScope.GetCompany.GetCompanyType.GetName]#! is losing [concept_prosperity]"
+ alert_company_losing_prosperity_desc: "#v [SCOPE.GetRootScope.GetCompany.GetCompanyType.GetName]#! has negative [concept_prosperity] growth and is in danger of losing its $concept_prosperity$ bonus."
+ alert_company_losing_prosperity_hint: "We can improve the [concept_prosperity] of a [concept_company] by increasing the [concept_productivity] of its associated [Concept('concept_building', '$concept_buildings$')]."
+ alert_company_losing_prosperity_action: "Company Panel"
 
  alert_low_supply_name: "Low Supply"
  alert_low_supply_desc: "Our [concept_commander] has low supply in his battalions."

@@ -388,6 +388,13 @@
  REMOVE_TAXED_GOODS_FIRST:0 "[COUNTRY.GetNameNoFlag] stops collecting [Concept('concept_consumption_tax', '$concept_consumption_taxes$')] on [TARGET_GOODS.GetName]"
  REMOVE_TAXED_GOODS_THIRD:0 "[COUNTRY.GetName] stops collecting [Concept('concept_consumption_tax', '$concept_consumption_taxes$')] on [TARGET_GOODS.GetName]"
 
+ ADD_COMPANY: "[COUNTRY.GetName] founds the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ ADD_COMPANY_FIRST: "[COUNTRY.GetNameNoFlag] founds the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ ADD_COMPANY_THIRD: "[COUNTRY.GetName] founds the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ REMOVE_COMPANY: "[COUNTRY.GetName] disbands the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ REMOVE_COMPANY_FIRST: "[COUNTRY.GetNameNoFlag] disbands the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ REMOVE_COMPANY_THIRD: "[COUNTRY.GetName] disbands the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+
  SET_TARIFFS:0 "[COUNTRY.GetName] starts to collect #v Unprioritized#! [concept_tariffs] on [TARGET_GOODS.GetName]"
  SET_TARIFFS_FIRST:0 "[COUNTRY.GetNameNoFlag] starts to collect #v Unprioritized#! [concept_tariffs] on [TARGET_GOODS.GetName]"
  SET_TARIFFS_THIRD:0 "[COUNTRY.GetName] starts to collect #v Unprioritized#! [concept_tariffs] on [TARGET_GOODS.GetName]"

@@ -43,6 +43,7 @@
  mm_front_interaction:0 "Front Interaction"
  mm_recruit_generals_interaction:1 "Recruit Generals at an HQ"
  mm_recruit_admirals_interaction:1 "Recruit Admirals at an HQ"
+ mm_create_formation_interaction: "Create Military Formation"
  mm_construction_interaction:0 "Construction Interaction"
  mm_declare_interest_interaction:0 "Declare Interest"
  mm_issue_decree_interaction:0 "Issue Decree"
@@ -52,8 +53,8 @@
  mm_reset_production_methods_interaction:0 "Reset Production Methods"
  mm_activate_conscripts_interaction:0 "Activate Conscription Centers"
  mm_designate_strategic_objective:0 "Designate Strategic Objectives"
- mm_diplomatic_play_country_interaction:0 "Diplomatic Play on a Country"
- mm_diplomatic_play_state_interaction:0 "Diplomatic Play on a State"
+ mm_diplomatic_play_country_interaction:1 "$concept_diplomatic_demand$ on a Country"
+ mm_diplomatic_play_state_interaction:1 "$concept_diplomatic_demand$ on a State"
  mm_diplomatic_action_interaction:0 "Diplomatic Action"
  mm_establish_colony_interaction:0 "Establish Colony"
 

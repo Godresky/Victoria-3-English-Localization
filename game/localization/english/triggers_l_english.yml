@@ -103,6 +103,34 @@
  TRIGGER_HAS_INSTITUTION_THIRD:0 "[COUNTRY.GetName] has the [INSTITUTION_TYPE.GetName] [concept_institution]"
  TRIGGER_HAS_INSTITUTION_THIRD_NOT:0 "[COUNTRY.GetName] does #bold not#! have the [INSTITUTION_TYPE.GetName] [concept_institution]"
  
+ TRIGGER_HAS_COMPANY: "Has established the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ TRIGGER_HAS_COMPANY_NOT: "Has #bold not#! established the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ TRIGGER_HAS_COMPANY_FIRST: "[COUNTRY.GetNameNoFlag] has established the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ TRIGGER_HAS_COMPANY_FIRST_NOT: "[COUNTRY.GetNameNoFlag] has #bold not#! established the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ TRIGGER_HAS_COMPANY_THIRD: "[COUNTRY.GetName] has established the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+ TRIGGER_HAS_COMPANY_THIRD_NOT: "[COUNTRY.GetName] has #bold not#! established the [TARGET_COMPANY_TYPE.GetName] [concept_company]"
+
+ TRIGGER_CAN_ESTABLISH_COMPANY: "Can establish a new [concept_company]"
+ TRIGGER_CAN_ESTABLISH_COMPANY_NOT: "Can #bold not#! establish a new [concept_company]"
+ TRIGGER_CAN_ESTABLISH_COMPANY_FIRST: "[COUNTRY.GetNameNoFlag] can establish a new [concept_company]"
+ TRIGGER_CAN_ESTABLISH_COMPANY_FIRST_NOT: "[COUNTRY.GetNameNoFlag] can #bold not#! establish a new [concept_company]"
+ TRIGGER_CAN_ESTABLISH_COMPANY_THIRD: "[COUNTRY.GetName] can establish a new [concept_company]"
+ TRIGGER_CAN_ESTABLISH_COMPANY_THIRD_NOT: "[COUNTRY.GetName] can #bold not#! establish a new [concept_company]"
+
+ TRIGGER_HAS_POLITICAL_MOVEMENT: "Has a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_HAS_POLITICAL_MOVEMENT_NOT: "Does #bold not#! have a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_HAS_POLITICAL_MOVEMENT_FIRST: "[COUNTRY.GetNameNoFlag] has a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_HAS_POLITICAL_MOVEMENT_FIRST_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_HAS_POLITICAL_MOVEMENT_THIRD: "[COUNTRY.GetName] has a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_HAS_POLITICAL_MOVEMENT_THIRD_NOT: "[COUNTRY.GetName] does #bold not#! have a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+
+ TRIGGER_CAN_HAVE_POLITICAL_MOVEMENT: "Can potentially get a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_CAN_HAVE_POLITICAL_MOVEMENT_NOT: "Can #bold not#! potentially get a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_CAN_HAVE_POLITICAL_MOVEMENT_FIRST: "[COUNTRY.GetNameNoFlag] can potentially get a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_CAN_HAVE_POLITICAL_MOVEMENT_FIRST_NOT: "[COUNTRY.GetNameNoFlag] can #bold not#! potentially get a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_CAN_HAVE_POLITICAL_MOVEMENT_THIRD: "[COUNTRY.GetName] can potentially get a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ TRIGGER_CAN_HAVE_POLITICAL_MOVEMENT_THIRD_NOT: "[COUNTRY.GetName] can #bold not#! potentially get a [concept_political_movement] for [TARGET_LAW_TYPE.GetName]"
+ 
  TRIGGER_HAS_DECREE:0 "Has the [DECREE_TYPE.GetName] [concept_decree]"
  TRIGGER_HAS_DECREE_NOT:1 "Does #bold not#! have the [DECREE_TYPE.GetName] [concept_decree]"
  TRIGGER_HAS_DECREE_THIRD:0 "[STATE.GetName] has the [DECREE_TYPE.GetName] [concept_decree]"
@@ -364,9 +392,35 @@
  
  TRIGGER_HAS_WAR_WITH:0 "Is at war with [TARGET_COUNTRY.GetName]"
  TRIGGER_HAS_WAR_WITH_NOT:1 "Is #bold not #!at war with [TARGET_COUNTRY.GetName]"
+ 
  TRIGGER_IS_DIPLOMATIC_PLAY_ENEMY_OF:0 "Is opposing [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
  TRIGGER_IS_DIPLOMATIC_PLAY_ENEMY_OF_NOT:0 "Is #bold not #! opposing [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ENEMY_OF_FIRST: "[Country.GetNameNoFlag] is opposing [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ENEMY_OF_FIRST_NOT: "[Country.GetNameNoFlag] is #bold not #! opposing [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ENEMY_OF_THIRD: "[Country.GetName] is opposing [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ENEMY_OF_THIRD_NOT: "[Country.GetName] is #bold not #! opposing [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
  
+ TRIGGER_IS_DIPLOMATIC_PLAY_ALLY_OF: "Is on the same side as [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ALLY_OF_NOT: "Is #bold not #! on the same side as [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ALLY_OF_FIRST: "[Country.GetNameNoFlag] is on the same side as [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ALLY_OF_FIRST_NOT: "[Country.GetNameNoFlag] is #bold not #! on the same side as [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ALLY_OF_THIRD: "[Country.GetName] is on the same side as [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_ALLY_OF_THIRD_NOT: "[Country.GetName] is #bold not #! on the same side as [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+  
+ TRIGGER_IS_DIPLOMATIC_PLAY_PARTICIPANT_WITH: "Is a committed participant alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_PARTICIPANT_WITH_NOT: "Is #bold not #! a committed participant alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_PARTICIPANT_WITH_FIRST: "[Country.GetNameNoFlag] is a committed participant alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_PARTICIPANT_WITH_FIRST_NOT: "[Country.GetNameNoFlag] is #bold not #! a committed participant alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_PARTICIPANT_WITH_THIRD: "[Country.GetName] is a committed participant alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_PARTICIPANT_WITH_THIRD_NOT: "[Country.GetName] is #bold not #! a committed participant alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ 
+ TRIGGER_IS_DIPLOMATIC_PLAY_INVOLVED_WITH: "Is an involved country alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_INVOLVED_WITH_NOT: "Is #bold not #! an involved country alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_INVOLVED_WITH_FIRST: "[Country.GetNameNoFlag] is an involved country alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_INVOLVED_WITH_FIRST_NOT: "[Country.GetNameNoFlag] is #bold not #! an involved country alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_INVOLVED_WITH_THIRD: "[Country.GetName] is an involved country alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+ TRIGGER_IS_DIPLOMATIC_PLAY_INVOLVED_WITH_THIRD_NOT: "[Country.GetName] is #bold not #! an involved country alongside [TARGET_COUNTRY.GetName] in a [concept_diplomatic_play]"
+
  TRIGGER_HAS_DIPLOMATS_EXPELLED:0 "Has recently expelled diplomats of [TARGET_COUNTRY.GetName]"
  TRIGGER_HAS_DIPLOMATS_EXPELLED_NOT:1 "Have #bold not #!recently expelled diplomats of [TARGET_COUNTRY.GetName]"
  
@@ -377,12 +431,19 @@
  TRIGGER_HAS_STRATEGIC_ADJACENCY_THIRD:0 "[COUNTRY.GetName] has a strategic adjacency to $TARGET$"
  TRIGGER_HAS_STRATEGIC_ADJACENCY_THIRD_NOT:0 "[COUNTRY.GetName] does #bold not#! have a strategic adjacency to $TARGET$"
  
- TRIGGER_IS_ADJACENT:0 "Is adjacent to $TARGET$"
- TRIGGER_IS_ADJACENT_NOT:0 "Is #bold not#! adjacent to $TARGET$"
- TRIGGER_IS_ADJACENT_FIRST:0 "[COUNTRY.GetNameNoFlag] is adjacent to $TARGET$"
- TRIGGER_IS_ADJACENT_FIRST_NOT:0 "[COUNTRY.GetNameNoFlag] is #bold not#! adjacent to $TARGET$"
- TRIGGER_IS_ADJACENT_THIRD:0 "[COUNTRY.GetName] is adjacent to $TARGET$"
- TRIGGER_IS_ADJACENT_THIRD_NOT:0 "[COUNTRY.GetName] is #bold not#! adjacent to $TARGET$"
+ TRIGGER_IS_ADJACENT_TO_COUNTRY:1 "Is adjacent to [TARGET_COUNTRY.GetName]"
+ TRIGGER_IS_ADJACENT_TO_COUNTRY_NOT:1 "Is #bold not#! adjacent to [TARGET_COUNTRY.GetName]"
+ TRIGGER_IS_ADJACENT_TO_COUNTRY_FIRST:1 "[COUNTRY.GetNameNoFlag] is adjacent to [TARGET_COUNTRY.GetName]"
+ TRIGGER_IS_ADJACENT_TO_COUNTRY_FIRST_NOT:1 "[COUNTRY.GetNameNoFlag] is #bold not#! adjacent to [TARGET_COUNTRY.GetName]"
+ TRIGGER_IS_ADJACENT_TO_COUNTRY_THIRD:1 "[COUNTRY.GetName] is adjacent to  [TARGET_COUNTRY.GetName]"
+ TRIGGER_IS_ADJACENT_TO_COUNTRY_THIRD_NOT:1 "[COUNTRY.GetName] is #bold not#! adjacent to [TARGET_COUNTRY.GetName]"
+
+ TRIGGER_IS_ADJACENT_TO_STATE: "Is adjacent to [TARGET_STATE.GetName]"
+ TRIGGER_IS_ADJACENT_TO_STATE_NOT: "Is #bold not#! adjacent to  [TARGET_STATE.GetName]"
+ TRIGGER_IS_ADJACENT_TO_STATE_FIRST: "[COUNTRY.GetNameNoFlag] is adjacent to [TARGET_STATE.GetName]"
+ TRIGGER_IS_ADJACENT_TO_STATE_FIRST_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! adjacent to [TARGET_STATE.GetName]"
+ TRIGGER_IS_ADJACENT_TO_STATE_THIRD: "[COUNTRY.GetName] is adjacent to [TARGET_STATE.GetName]"
+ TRIGGER_IS_ADJACENT_TO_STATE_THIRD_NOT: "[COUNTRY.GetName] is #bold not#! adjacent to [TARGET_STATE.GetName]"
  
  TRIGGER_HAS_OVERLAPPING_INTERESTS:2 "Has [Concept('concept_interest', '$concept_interests$')] in the same [Concept('concept_strategic_region','$concept_strategic_regions$')] as [TARGET_COUNTRY.GetName]"
  TRIGGER_HAS_OVERLAPPING_INTERESTS_NOT:2 "Does #bold not#! have have any [Concept('concept_interest', '$concept_interests$')] in the same [Concept('concept_strategic_region','$concept_strategic_regions$')] as [TARGET_COUNTRY.GetName]"
@@ -459,6 +520,11 @@
  TRIGGER_IS_IN_CUSTOMS_UNION:0 "[Country.GetName] is part of a customs union"
  TRIGGER_IS_IN_CUSTOMS_UNION_NOT:1 "[Country.GetName] is #bold not #!part of a customs union"
 
+ TRIGGER_IS_FORCED_PACT: "Has an enforced duration before it can be broken"
+ TRIGGER_IS_FORCED_PACT_NOT: "Does NOT have an enforced duration before it can be broken"
+ TRIGGER_IS_FORCED_PACT_THIRD: "[DIPLOMATIC_PACT.GetName] has an enforced duration before it can be broken"
+ TRIGGER_IS_FORCED_PACT_THIRD_NOT: "[DIPLOMATIC_PACT.GetName] does NOT Have an enforced duration before it can be broken"
+
  TRIGGER_LEADS_CUSTOMS_UNION:0 "[Country.GetName] leads a customs union"
  TRIGGER_LEADS_CUSTOMS_UNION_NOT:1 "[Country.GetName] does #bold not #!lead a customs union"
  
@@ -469,8 +535,19 @@
  TRIGGER_LITERACY_RATE_THIRD:1 "$SUBJECT$ has a [concept_literacy] Rate $COMPARATOR$ #variable $NUM|0%$#!"
  TRIGGER_LITERACY_RATE_THIRD_NOT:1 "$SUBJECT$ has a [concept_literacy] Rate $COMPARATOR$ #variable $NUM|0%$#!"
  
- TRIGGER_SCALED_DEBT:0 "Has a debt of $COMPARATOR$ @money!#variable $VALUE|K0$#!"
- TRIGGER_SCALED_DEBT_NOT:1 "Does #bold not #!have a debt of $COMPARATOR$ @money!#variable $VALUE|K0$#!"
+ TRIGGER_SCALED_DEBT:1 "Has a [concept_principal] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to [concept_credit]"
+ TRIGGER_SCALED_DEBT_NOT:2 "Does #bold not #!have a [concept_principal] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to [concept_credit]"
+ TRIGGER_SCALED_DEBT_FIRST: "[Country.GetNameNoFlag] has a [concept_principal] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to [concept_credit]"
+ TRIGGER_SCALED_DEBT_FIRST_NOT: "[Country.GetNameNoFlag] does #bold not #!have a [concept_principal] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to [concept_credit]"
+ TRIGGER_SCALED_DEBT_THIRD: "[Country.GetName] has a [concept_principal] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to [concept_credit]"
+ TRIGGER_SCALED_DEBT_THIRD_NOT: "[Country.GetName] does #bold not #!have a [concept_principal] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to [concept_credit]"
+ 
+ TRIGGER_SCALED_GOLD_RESERVES: "Has [concept_gold_reserves] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to limit"
+ TRIGGER_SCALED_GOLD_RESERVES_NOT: "Does #bold not #!have [concept_gold_reserves] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to limit"
+ TRIGGER_SCALED_GOLD_RESERVES_FIRST: "[Country.GetNameNoFlag] has [concept_gold_reserves] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to limit"
+ TRIGGER_SCALED_GOLD_RESERVES_FIRST_NOT: "[Country.GetNameNoFlag] does #bold not #!have [concept_gold_reserves] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to limit"
+ TRIGGER_SCALED_GOLD_RESERVES_THIRD: "[Country.GetName] has [concept_gold_reserves] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to limit"
+ TRIGGER_SCALED_GOLD_RESERVES_THIRD_NOT: "[Country.GetName] does #bold not #!have [concept_gold_reserves] of $COMPARATOR$ @money!#variable $VALUE|K0$#! relative to limit"
  
  TRIGGER_RELATIONS:0 "#variable $COUNTRY_ADJ$#! relations with #variable $TARGET_COUNTRY$#! are $COMPARATOR$ #variable $NUM$#!"
  TRIGGER_RELATIONS_NOT:1 "#variable $COUNTRY_ADJ$#! relations with #variable $TARGET_COUNTRY$#! are #bold not #!$COMPARATOR$ #variable $NUM$#!"

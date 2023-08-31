@@ -97,6 +97,9 @@
  ACCEPT:0 "Accept"
  base_values:0 "Base Value"
  character_base_values:0 "$base_values$"
+ prestige_ranking: "[concept_prestige] ranking"
+ top_prestige_ranking: "[concept_prestige] ranking in the #v Top-[GetDefine('NDiplomacy','TOP_PRESTIGE_RANK_BONUS_THRESHOLD')]#!"
+ 
  discrimination:0 "[concept_discrimination]"
  coastal_state:1 "Coastal [concept_state]"
  insufficient_tax_capacity:0 "Insufficient [concept_tax_capacity]"
@@ -151,9 +154,27 @@
  FRONT_ADVANTAGE_US:3 "#header $NAME$#!\nWe estimate a #variable #p $ADV$%#!#! advantage, due to:"
  FRONT_ADVANTAGE_THEM:3 "#header $NAME$#!\nWe estimate a #variable #n $ADV$%#!#! disadvantage, due to:"
  FRONT_ADVANTAGE_SAME_COMBAT_POWER:2 "#header $NAME$#!\nBoth sides of this [concept_front] are balanced, due to:"
- FRONT_ADVANTAGE_NO_ONE:0 "#header $NAME$#!\nNo one has the advantage [concept_front], due to:"
+ FRONT_ADVANTAGE_NO_ONE: "#header $NAME$#!\nNo one has the advantage on this [concept_front], due to:"
  FRONT_ADVANTAGE_BREAKDOWN_UNITS:3 "$TAB$We have @battalions!$US|v$ ($OUR_MANPOWER|vD$ @manpower!), they have @battalions!$THEM|v$ ($THEIR_MANPOWER|vD$ @manpower!)"
  FRONT_ADVANTAGE_BREAKDOWN_CE:1 "$TAB$We have $US|v0$ Average Offense/Defense, they have $THEM|v0$"
  law_enactment_chance:0 "Law Enactment Chance"
  early_demobilization: "Early Demobilization"
  OBSERVER:0 "[Concept('concept_observer_mode','$concept_observer$')]"
+
+ DEPLOY_MILITARY_FORMATION_TO_FRONT_NOT_A_PARTICIPANT: "Cannot deploy $FORMATION_NAME$ to $FRONT_NAME$: $COUNTRY_NAME$ is not a participant on $FRONT_NAME$"
+ DEPLOY_MILITARY_FORMATION_TO_FRONT_ALREADY_DEPLOYED_TO_FRONT: "$FORMATION_NAME$ is already deployed to $FRONT_NAME$"
+ COMMAND_CONFIRMATION_DEPLOY_MILITARY_FORMATION_TO_FRONT: "Deploy $FORMATION_NAME$ to $FRONT_NAME$"
+
+ DEPLOY_MILITARY_FORMATION_TO_FRONT_NOT_A_SEA_NODE: "Cannot deploy $FORMATION_NAME$ to the selected [concept_province]: the selected [concept_province] is not a [concept_sea_node]"
+ DEPLOY_MILITARY_FORMATION_TO_SEA_NODE_ALREADY_DEPLOYED_TO_SEA_NODE: "$FORMATION_NAME$ is already deployed to the selected [concept_sea_node]"
+ COMMAND_CONFIRMATION_DEPLOY_MILITARY_FORMATION_TO_SEA_NODE: "Deploy $FORMATION_NAME$ to the selected [concept_sea_node]"
+
+ STATION_MILITARY_FORMATION_COUNTRY_DOES_NOT_OWN_HQ: "Cannot station $FORMATION_NAME$ in $HQ_NAME$: $FORMATION_COUNTRY_NAME$ does not own $HQ_NAME$, which is owned by $HQ_OWNER_COUNTRY_NAME$"
+ STATION_MILITARY_FORMATION_ALREADY_STATIONED_IN_HQ: "$FORMATION_NAME$ is already stationed in $HQ_NAME$"
+ COMMAND_CONFIRMATION_STATION_MILITARY_FORMATION: "Station $FORMATION_NAME$ in $HQ_NAME$"
+ 
+ RENAME_STRING_TOO_LONG: "@warning! Name is too long"
+ RENAME_STRING_EMPTY: "@warning! Name is empty"
+ RENAME_STRING_ILLEGAL: "@warning! Name contains illegal characters"
+ RENAME_STRING_STARTS_WITH_SPACE: "@warning! Name starts with space"
+ RENAME_STRING_ENDS_WITH_SPACE: "@warning! Name ends with space"

@@ -2087,16 +2087,6 @@
   government_petition_events.1.f: ""Er, one last matter for the day, sir. Members of your constituency arrived this morning. They're... asking rather loudly and insistently... if you would meet with them about new legislation."\n\n"Is that it? Goodness, you seem as if you've seen a ghost. I'm sure I can spare the last hours of light for them, can't I?"\n\n"I-I believe so, sir. They weren't taking 'no' for an answer.""
   government_petition_events.1.a: "We will see what we can do."
 
-  ### New Modifiers
-    
-  modifier_benefiting_from_corruption: "The Benefits of Corruption"
-  modifier_rewritten_law: "New and Improved"
-  modifier_shrewd_opportunist: "Shrewd Opportunist"
-  modifier_half_written_bill: "Compromised Draft"
-  modifier_short_term_benefit: "Long-Term Sacrifices"
-  modifier_training_bureaucrat_replacements: "Training New Bureaucrats"
-  modifier_corruption_is_very_good: "Corrupt Bargains"
-  
   ### Divided Monarchist Rework
   modifier_reasonable_monarchist_partisan: "Respectable Partisanship"
   modifier_monarchist_partisan_popularity: "Monarchist Agitation"

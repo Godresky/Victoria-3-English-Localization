@@ -29,6 +29,7 @@
  pmg_base_building_banana_plantation:1 "$pm_base$"
  pmg_base_building_silk_plantation:1 "$pm_base$"
  pmg_base_building_rubber_plantation:1 "$pm_base$"
+ pmg_base_building_vineyard_plantation: "$pm_base$"
  pmg_base_building_construction_sector:1 "$pm_base$"
  pmg_base_building_port:1 "$pm_base$"
  pmg_base_building_trade_center:1 "$pm_base$"
@@ -98,6 +99,7 @@
  pm_no_passenger_trains:0 "Cargo Prioritization"
  pm_wooden_passenger_carriages:0 "Wooden Passenger Carriages"
  pm_steel_passenger_carriages:0 "Steel Passenger Carriages"
+ pm_early_trains: "Experimental Trains"
  pm_steam_trains:0 "Steam Trains"
  pm_electric_trains:0 "Electric Trains"
  pm_diesel_trains:0 "Diesel Trains"
@@ -114,7 +116,7 @@
  pm_disabled_canning:0 "Jars"
  pm_cannery:0 "Canneries"
  pm_disabled_cannery:0 "No Canneries"
- pm_vacuum_canning:0 "Vacuum Canning"
+ pm_vacuum_canning:1 "Meat Packaging"
   
  pmg_distillery:0 "Distilleries"
  pm_disabled_distillery:0 "Prioritize Grocery Production"
@@ -276,10 +278,13 @@
  pm_steam_threshers:0 "Steam-Powered Thresher Machines"
  pm_tractors:0 "Tractors"
  pm_compression_ignition_tractors:0 "Compression Ignition Tractors"
+ pm_tools_building_rice_farm:0 "Harvesting Tools"
+ pm_steam_threshers_building_rice_farm:0 "Steam-Powered Thresher Machines"
 
   # Ranches
- pm_simple_ranch:0 "Simple Ranch"
- pm_intensive_grazing_ranch:0 "Intensive Grazing Ranch"
+ pm_simple_ranch:0 "Sheep Ranch"
+ pm_sheep_farms:0 "Increased Wool Gathering"
+ pm_intensive_grazing_ranch:1 "Intensive Wool Gathering"
  pm_butchering_tools:0 "Butchering Tools"
  pm_open_air_stockyards:0 "Open Air Stockyards"
  pm_slaughterhouses:0 "Slaughterhouses"
@@ -314,7 +319,7 @@
  pm_steam_donkey_mine:0 "Steam Donkey"
  pm_steam_donkey_building_logging_camp:0 "Steam Donkey"
  pm_steam_donkey_building_coal_mine:0 "Steam Donkey"
- pmg_explosives_building_chemical_plants:0 "Explosives"
+ pmg_explosives_building_chemical_plants:1 "$pm_base$"
 
  pmg_explosives_building_coal_mine:0 "Explosives"
  pmg_explosives_building_iron_mine:0 "Explosives"
@@ -376,25 +381,6 @@
  pm_skirmish_infantry:0 "Skirmish Infantry"
  pm_trench_infantry:0 "Trench Infantry"
  pm_squad_infantry:0 "Squad Infantry"
-
- pmg_artillery:0 "Artillery Support"
- pm_no_artillery:0 "Infantry Focus"
- pm_cannon_artillery:0 "Cannon Artillery"
- pm_mobile_artillery:0 "Mobile Artillery"
- pm_shrapnel_artillery:0 "Shrapnel Artillery"
- pm_siege_artillery:0 "Siege Artillery"
-
- pmg_reconaissance:0 "Reconnaissance"
- pm_cavalry_scouts:0 "Cavalry Scouts"
- pm_bicycle_messengers:0 "Bicycle Messengers"
- pm_aerial_recon:0 "Aerial Reconnaissance"
-
- pmg_specialist_companies:0 "Specialist Companies"
- pm_no_specialists:0 "Standardized Infantry"
- pm_machine_gunners:0 "Machine Gunners"
- pm_infiltrators:0 "Infiltrators"
- pm_flamethrower_company:0 "Flamethrower Companies"
- pm_chemical_weapons_specialists:0 "Chemical Weapon Specialists"
  
  ###
  
@@ -404,30 +390,6 @@
  pm_skirmish_infantry_conscription:0 "$pm_skirmish_infantry$"
  pm_trench_infantry_conscription:0 "$pm_trench_infantry$"
  pm_squad_infantry_conscription:0 "$pm_squad_infantry$"
-
- pmg_artillery_conscription:0 "$pmg_artillery$"
- pm_no_artillery_conscription:0 "$pm_no_artillery$"
- pm_cannon_artillery_conscription:0 "$pm_cannon_artillery$"
- pm_mobile_artillery_conscription:0 "$pm_mobile_artillery$"
- pm_shrapnel_artillery_conscription:0 "$pm_shrapnel_artillery$"
- pm_siege_artillery_conscription:0 "$pm_siege_artillery$"
-
- pmg_reconaissance_conscription:0 "$pmg_reconaissance$"
- pm_cavalry_scouts_conscription:0 "$pm_cavalry_scouts$"
- pm_bicycle_messengers_conscription:0 "$pm_bicycle_messengers$"
- pm_aerial_recon_conscription:0 "$pm_aerial_recon$"
-
- pmg_specialist_companies_conscription:0 "$pmg_specialist_companies$"
- pm_no_specialists_conscription:0 "$pm_no_specialists$"
- pm_machine_gunners_conscription:0 "$pm_machine_gunners$"
- pm_infiltrators_conscription:0 "$pm_infiltrators$"
- pm_flamethrower_company_conscription:0 "$pm_flamethrower_company$"
- pm_chemical_weapons_specialists_conscription:0 "$pm_chemical_weapons_specialists$"
-  
- pmg_medical_aid:0 "Medical Aid"
- pm_wound_dressing:0 "Wound Dressing"
- pm_first_aid:0 "First Aid"
- pm_field_hospitals:0 "Field Hospitals"
 
   # Electrics
  pm_no_radios:0 "Prioritize Telephone Production"
@@ -446,6 +408,7 @@
  pm_no_hardwood:0 "Prioritize Softwood Production"
  pmg_hardwood:0 "Hardwood Production"
  pm_hardwood:0 "Hardwood Production"
+ pm_increased_hardwood: "Focused Hardwood Production"
 
   #Shipbuilding
 
@@ -454,10 +417,11 @@
  pm_metal_shipbuilding:0 "Steamships"
  pm_arc_welding_shipbuilding:0 "Arc-Welded Steamships"
  pm_no_military_shipbuilding:0 "Civilian Shipbuilding"
- pm_military_shipbuilding_wooden:0 "Military Shipbuilding"
- pm_military_shipbuilding_wooden_2:0 "Extensive Military Shipbuilding"
- pm_military_shipbuilding_steam:0 "Military Shipbuilding"
- pm_military_shipbuilding_steam_2:0 "Extensive Military Shipbuilding"
+
+ pm_military_shipbuilding_wooden:1 "Wooden Hulls"
+ pm_military_shipbuilding_wooden_2:1 "Steam Ships"
+ pm_military_shipbuilding_steam:1 "Steel Hulls"
+ pm_military_shipbuilding_steam_2:1 "Capital Ships"
 
   #Port
  pm_anchorage:0 "Anchorage"
@@ -499,7 +463,7 @@
  pmg_secondary_vessels:0 "Secondary Vessels"
  pmg_ship_class:0 "Ship Class"
  pmg_naval_theory:0 "Naval Theory"
- pmg_military_base:0 "Military Base"
+ pmg_military_base:1 "$pm_base$"
  pmg_lightbulbs_category:0 "Lightbulbs"
  pm_best_lightbulbs:0 "The Best Lightbulbs"
  pmg_telephones_category:0 "Telephones"
@@ -512,7 +476,7 @@
  pmg_harvesting_process_building_maize_farm:1 "$pmg_harvesting_process$"
  pmg_harvesting_process_building_millet_farm:1 "$pmg_harvesting_process$"
  
- pmg_slaughtering:0 "Slaughtering"
+ pmg_sheep_ranch:0 "Wool Production"
  pmg_fencing:0 "Fencing"
 
  pmg_steam_automation:0 "Steam Automation"
@@ -538,6 +502,7 @@
  pmg_train_automation_building_banana_plantation:1 "$pmg_train_automation$"
  pmg_train_automation_building_silk_plantation:1 "$pmg_train_automation$"
  pmg_train_automation_building_rubber_plantation:1 "$pmg_train_automation$"
+ pmg_train_automation_building_vineyard_plantation: "$pmg_train_automation$"
 
  pm_electric_saw_mills:0 "Electric Saw Mills"
  pmg_equipment:0 "Special Equipment"
@@ -562,6 +527,7 @@
  pm_cannons:0 "Cannons"
  pm_smoothbores:0 "Smoothbores"
  pm_breech_loaders:0 "Breech Loaders"
+ pm_recoiled_barrels: "Recoil Mechanisms"
  pm_automation_disabled:0 "Hand Assembly"
  pm_automobiles_disabled:0 "Prioritize Engine Production"
  pm_hydroelectric_plant:0 "Hydroelectric Plant"
@@ -639,6 +605,7 @@
  default_building_subsistence_pastures:0 "$pm_default$"
  default_building_subsistence_fishing_villages:0 "$pm_default$"
  default_building_subsistence_rice_paddies:0 "$pm_default$"
+ default_building_vineyard_plantation: "$pm_default$"
 
  automatic_irrigation:0 "Automatic Irrigation"
  automatic_irrigation_building_coffee_plantation:0 "$automatic_irrigation$"
@@ -651,6 +618,7 @@
  automatic_irrigation_building_banana_plantation:0 "$automatic_irrigation$"
  automatic_irrigation_building_silk_plantation:0 "$automatic_irrigation$"
  automatic_irrigation_building_rubber_plantation:0 "$automatic_irrigation$"
+ automatic_irrigation_building_vineyard_plantation: "$automatic_irrigation$"
  
   # Construction Camp
  pm_wooden_buildings:0 "Wooden Buildings"
@@ -671,10 +639,12 @@
  pmg_ownership_capital_building_tooling_workshops:1 "$pmg_ownership$"
  pmg_ownership_capital_building_paper_mills:1 "$pmg_ownership$"
  pmg_ownership_capital_building_chemical_plants:1 "$pmg_ownership$"
+ pmg_ownership_capital_building_explosives_factory:0 "$pmg_ownership$"
  pmg_ownership_capital_building_synthetics_plants:1 "$pmg_ownership$"
  pmg_ownership_capital_building_motor_industry:1 "$pmg_ownership$"
  pmg_ownership_capital_building_steel_mills:1 "$pmg_ownership$"
  pmg_ownership_capital_building_shipyards:1 "$pmg_ownership$"
+ pmg_ownership_capital_building_military_shipyards: "$pmg_ownership$"
  pmg_ownership_capital_building_war_machine_industry:1 "$pmg_ownership$"
  pmg_ownership_capital_building_electrics_industry:1 "$pmg_ownership$"
  pmg_ownership_capital_building_arms_industry:1 "$pmg_ownership$"
@@ -705,7 +675,8 @@
  pmg_ownership_land_building_maize_farm:1 "$pmg_ownership$"
  pmg_ownership_land_building_millet_farm:1 "$pmg_ownership$"
  pmg_ownership_land_building_dye_plantation:1 "$pmg_ownership$"
- pmg_ownership_land_building_silk_plantation:1 ""
+ pmg_ownership_land_building_silk_plantation:1 "$pmg_ownership$"
+ pmg_ownership_land_building_vineyard_plantation: "$pmg_ownership$"
  pmg_ownership_building_subsistence:0 "$pmg_ownership$"
 
  pmg_ownership_capital_building_railway:0 "$pmg_ownership$"
@@ -719,6 +690,7 @@
  pm_merchant_guilds_building_tooling_workshops:1 "$pm_merchant_guilds$"
  pm_merchant_guilds_building_paper_mills:1 "$pm_merchant_guilds$"
  pm_merchant_guilds_building_shipyards:1 "$pm_merchant_guilds$"
+ pm_merchant_guilds_building_military_shipyards: "$pm_merchant_guilds$"
  pm_merchant_guilds_building_arms_industry:1 "$pm_merchant_guilds$"
  pm_merchant_guilds_building_logging_camp:1 "$pm_merchant_guilds$"
  pm_merchant_guilds_building_fishing_wharf:1 "$pm_merchant_guilds$"
@@ -744,6 +716,7 @@
  pm_privately_owned_building_tooling_workshops:1 "$pm_privately_owned$"
  pm_privately_owned_building_paper_mills:1 "$pm_privately_owned$"
  pm_privately_owned_building_shipyards:1 "$pm_privately_owned$"
+ pm_privately_owned_building_military_shipyards: "$pm_privately_owned$"
  pm_privately_owned_building_arms_industry:1 "$pm_privately_owned$"
  pm_privately_owned_industry:1 "$pm_privately_owned$"
  pm_privately_owned_building_fishing_wharf:1 "$pm_privately_owned$"
@@ -763,6 +736,7 @@
  pm_publicly_traded_building_tooling_workshops:1 "$pm_publicly_traded$"
  pm_publicly_traded_building_paper_mills:1 "$pm_publicly_traded$"
  pm_publicly_traded_building_shipyards:1 "$pm_publicly_traded$"
+ pm_publicly_traded_building_military_shipyards: "$pm_publicly_traded$"
  pm_publicly_traded_building_arms_industry:1 "$pm_publicly_traded$"
  pm_publicly_traded_building_logging_camp:1 "$pm_publicly_traded$"
  pm_publicly_traded_building_rice_farm:1 "$pm_publicly_traded$"
@@ -775,6 +749,7 @@
  pm_publicly_traded_building_sulfur_mine:1 "$pm_publicly_traded$"
  pm_publicly_traded_building_gold_mine:1 "$pm_publicly_traded$"
  pm_publicly_traded_building_chemical_plants:0 "$pm_publicly_traded$"
+ pm_publicly_traded_building_explosives_factory:0 "$pm_publicly_traded$"
  pm_publicly_traded_building_synthetic_plants:0 "$pm_publicly_traded$"
  pm_publicly_traded_building_steel_mills:0 "$pm_publicly_traded$"
  pm_publicly_traded_building_motor_industries:0 "$pm_publicly_traded$"
@@ -794,6 +769,7 @@
  pm_government_run_building_tooling_workshops:1 "$pm_government_run$"
  pm_government_run_building_paper_mills:1 "$pm_government_run$"
  pm_government_run_building_shipyards:1 "$pm_government_run$"
+ pm_government_run_building_military_shipyards: "$pm_government_run$"
  pm_government_run_building_arms_industry:1 "$pm_government_run$"
  pm_government_run_building_logging_camp:1 "$pm_government_run$"
  pm_government_run_building_fishing_wharf:1 "$pm_government_run$"
@@ -816,6 +792,7 @@
  pm_worker_cooperative_building_tooling_workshops:1 "$pm_worker_cooperative$"
  pm_worker_cooperative_building_paper_mills:1 "$pm_worker_cooperative$"
  pm_worker_cooperative_building_shipyards:1 "$pm_worker_cooperative$"
+ pm_worker_cooperative_building_military_shipyards: "$pm_worker_cooperative$"
  pm_worker_cooperative_building_arms_industry:1 "$pm_worker_cooperative$"
  pm_worker_cooperative_building_rice_farm:1 "$pm_worker_cooperative$"
  pm_worker_cooperative_building_logging_camp:1 "$pm_worker_cooperative$"

@@ -170,7 +170,7 @@
  peoples_springtime.6.a:0 "The world is changing."
  peoples_springtime.6.a.tt:0 "The $je_springtime_of_the_peoples$ [concept_journal_entry] disappears from all nations."
  peoples_springtime.7.t:0 "The Revolution Victorious"
- peoples_springtime.7.d:0 "[SCOPE.gsInterestGroup('radical_ig').GetLeader.GetFullName] and the [SCOPE.gsInterestGroup('radical_ig').GetName] have proven that the the goals of the [SCOPE.gsInterestGroup('radical_ig').GetLeader.GetIdeology.GetName] movement are achievable in [ROOT.GetCountry.GetName]."
+ peoples_springtime.7.d:1 "[SCOPE.gsInterestGroup('radical_ig').GetLeader.GetFullName] and the [SCOPE.gsInterestGroup('radical_ig').GetName] have proven that the goals of the [SCOPE.gsInterestGroup('radical_ig').GetLeader.GetIdeology.GetName] movement are achievable in [ROOT.GetCountry.GetName]."
  peoples_springtime.7.f:0 ""This is not a time to rest and admire our work! How many a revolutionary has not failed to seize their moment, only to find their achievements swept away like sand castles by the tides of history? Power has slipped from the hands of tyrants and we must assure they can never seize it again.""
  peoples_springtime.7.a:0 "The [SCOPE.gsInterestGroup('radical_ig').GetLeader.GetLastName] cabinet will bring greater liberties yet!"
  peoples_springtime.7.b:0 "Our people are our strength!"
